@@ -9,14 +9,14 @@ terraform {
 resource "azurerm_public_ip" "main" {
   name                = var.vm_name
   location            = "Denmark East"
-  resource_group_name = "denmark-east-rg"
+  resource_group_name = "Test"
   allocation_method   = "Static"
 }
 
 resource "azurerm_network_interface" "main" {
   name                = "${var.vm_name}-nic"
   location            = "Denmark East"
-  resource_group_name = "denmark-east-rg"
+  resource_group_name = "Test"
 
   ip_configuration {
     name                          =  "${var.vm_name}-nic"
@@ -29,7 +29,7 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_linux_virtual_machine" "main" {
   name                  = "${var.vm_name}-vm"
   location              = "Denmark East"
-  resource_group_name   = "denmark-east-rg"
+  resource_group_name   = "Test"
   network_interface_ids = [azurerm_network_interface.main.id]
   size               = "Standard_D2s_v3"
 
