@@ -51,7 +51,7 @@ resource "azurerm_linux_virtual_machine" "main" {
 }
 
 variable "vm_name" {
-  default = "docker"
+  default = "work-station"
 }
 
 
